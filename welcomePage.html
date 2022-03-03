@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>RateNCAT</title>
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="551164196568-prqsuhg5amkfi1fabaup2ldtsedu16pg.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+    </head>
+
+    <style type="text/css">
+        body {
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+        }
+        .g-signin2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;        
+        }
+    </style>
+
+    <body style="background-color: blue; color: gold;">
+
+        <img src="RateNCATPNG.png" class="image">
+
+        <p1 style="background-color: gold; color: blue; font-size: 25px;">
+            Welcome to RateNCAT!! This is a site where you can rate as a 
+            Student or Faculty member to communicate and share your thoughts
+            on the different facilities, professors, and other university-related
+            things. Users will be able to leave a rating post that 
+            is out of five stars. In this post, the user could choose to leave 
+            just a star rating and/or comment on their rating. This will give 
+            users the ability to elaborate on how they felt and why they gave 
+            a particular rating. <br><br>
+        </p1>
+
+        <div class="g-signin2" data-onsuccess="onSignIn" 
+            data-redirecturi="https://taurusmmdc.github.io/RateNCAT/"></div>
+
+            <br><br>
+
+        <button onclick="signOut()">Sign Out</button>
+
+    </body>
+
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+            //var element = document.querySelector('#content');
+            //element.innerText = googleUser.getBasicProfile().getName();
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+    </script>
+
+</html>
