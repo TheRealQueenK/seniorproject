@@ -3,8 +3,30 @@
     <head>
         <a href="./website.html">
             <img src="bulldogDoggie.png" style="float: left; width: 200px; height: 200px;">
-            <title>NCAT Restaurants & Stores</title>
         </a>
+
+        <title>NCAT Restaurants & Stores</title>
+
+        <style type="text/css">
+            #map {
+                height: 400px;
+                width: 100%;
+            }
+        </style>
+
+        <script>
+            function initMap() {
+                const ncat = {lat: 36.075, lng: -79.7723};
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 4,
+                    center: ncat,
+                });
+                const marker = new google.maps.Marker({
+                    position: ncat,
+                    map: map,
+                });
+            }
+        </script>
     </head>
 
     <body style="background-color: blue; color: gold;">
@@ -15,5 +37,11 @@
             this section you are able to rate restaurants & stores, in a 10 mile radius, out of
             5 stars. If you can, please leave a review under your star rating. 
         </p1>
+
+        <div id="map"></div>
+
+        <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaNu3hWzsJE0MAP6CfOWpz1z5nXRhs5hA"
+        ></script>
     </body>
 </html>
