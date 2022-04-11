@@ -41,12 +41,15 @@
             a particular rating. <br><br>
         </p1>
 
-        <div class="g-signin2" data-onsuccess="onSignIn" 
-            data-redirecturi="https://taurusmmdc.github.io/RateNCAT/"></div>
+        <div class="g-signin2" data-onsuccess="onSignIn" data-redirecturi="./website.html"</div>
 
-            <br><br>
+        <br>
 
         <button onclick="signOut()">Sign Out</button>
+        
+        <br><br>
+        
+        <p2 id="link"></p2>
 
     </body>
 
@@ -57,16 +60,18 @@
             console.log('Name: ' + profile.getName());
             console.log('Image URL: ' + profile.getImageUrl());
             console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            
+            window.alert("You are signed in. You will be redirected to the Main Page"); 
+            
+            link.innerHTML = 'https://taurusmmdc.github.io/RateNCAT/';
         }
-            //var element = document.querySelector('#content');
-            //element.innerText = googleUser.getBasicProfile().getName();
 
         function signOut() {
             var auth2 = gapi.auth2.getAuthInstance();
             auth2.signOut().then(function () {
                 console.log('User signed out.');
+                window.alert("You are signed out.");
             });
         }
     </script>
-
 </html>
