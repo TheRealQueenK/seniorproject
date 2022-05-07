@@ -13,6 +13,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
+
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #00008B;">
         <div class="container">
@@ -47,6 +48,7 @@
         </div>
     </nav>
 </header>
+
     <div class="container">
         <main class="my-5">
             <div class="container">
@@ -259,6 +261,30 @@ $(document).ready(function(){
         }
         else
         {
+            if (rating_data == 0) {
+                myComment(user_review);
+            }
+            function myComment(user_review) {
+
+                if (user_review.indexOf("good") >= 0) {
+                    rating_data = 3;
+                }
+                if (user_review.indexOf("bad") >= 0) {
+                    rating_data = 1;
+                }
+                if (user_review.indexOf("great") >= 0) {
+                    rating_data = 5;
+                }
+                if (user_review.indexOf("not good") >= 0) {
+                    rating_data = 1;
+                }
+                if (user_review.indexOf("not bad") >= 0) {
+                    rating_data = 3;
+                }
+                if (user_review.indexOf("not great") >= 0) {
+                    rating_data = 2;
+                }
+            }
             $.ajax({
                 url:"submit_rating.php",
                 method:"POST",

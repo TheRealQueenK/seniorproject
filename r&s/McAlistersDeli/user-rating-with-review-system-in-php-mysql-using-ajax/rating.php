@@ -242,6 +242,30 @@ $(document).ready(function(){
         }
         else
         {
+            if (rating_data == 0) {
+                myComment(user_review);
+            }
+            function myComment(user_review) {
+
+                if (user_review.indexOf("good") >= 0) {
+                    rating_data = 3;
+                }
+                if (user_review.indexOf("bad") >= 0) {
+                    rating_data = 1;
+                }
+                if (user_review.indexOf("great") >= 0) {
+                    rating_data = 5;
+                }
+                if (user_review.indexOf("not good") >= 0) {
+                    rating_data = 1;
+                }
+                if (user_review.indexOf("not bad") >= 0) {
+                    rating_data = 3;
+                }
+                if (user_review.indexOf("not great") >= 0) {
+                    rating_data = 2;
+                }
+            }
             $.ajax({
                 url:"submit_rating.php",
                 method:"POST",
